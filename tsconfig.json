@@ -31,7 +31,9 @@
       "@adonisjs/lucid",
       "adonis-lucid-filter",
       "adonis-lucid-soft-deletes",
-      "@adonisjs/redis"
+      "@adonisjs/redis",
+      "@adonisjs/view",
+      "@adonisjs/mail"
     ]
   }
 }
