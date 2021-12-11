@@ -23,7 +23,8 @@
     "@adonisjs/core",
     "@adonisjs/lucid",
     "adonis-lucid-filter",
-    "adonis-lucid-soft-deletes"
+    "adonis-lucid-soft-deletes",
+    "@adonisjs/redis"
   ],
   "aceProviders": [
     "@adonisjs/repl"
