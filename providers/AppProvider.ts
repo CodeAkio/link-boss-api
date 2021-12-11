@@ -4,7 +4,10 @@ export default class AppProvider {
   constructor(protected app: ApplicationContract) {}
 
   public register() {
-    // Register your own bindings
+    const types = require('pg').types
+    types.setTypeParser(types.builtins.NUMERIC, function (val: string) {
+      return Number(val)
+    })
   }
 
   public async boot() {
