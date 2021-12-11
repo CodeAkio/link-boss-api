@@ -16,6 +16,8 @@
 ## Tecnologias
 
 * [Adonis.js](https://adonisjs.com/)
+* [Lucid Filter](https://github.com/lookinlab/adonis-lucid-filter)
+* [Lucid Soft Delete](https://github.com/lookinlab/adonis-lucid-soft-deletes)
 * [PostgreSQL](https://www.postgresql.org/)
 * [Redis](https://redis.io/)
 * [ESLint](https://eslint.org/)

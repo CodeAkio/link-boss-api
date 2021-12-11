@@ -29,7 +29,8 @@
       "@adonisjs/core",
       "@adonisjs/repl",
       "@adonisjs/lucid",
-      "adonis-lucid-filter"
+      "adonis-lucid-filter",
+      "adonis-lucid-soft-deletes"
     ]
   }
 }
