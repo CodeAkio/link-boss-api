@@ -11,6 +11,7 @@
   "exceptionHandlerNamespace": "App/Exceptions/Handler",
   "aliases": {
     "App": "app",
+    "Test": "test",
     "Config": "config",
     "Database": "database",
     "Contracts": "contracts"

@@ -8,7 +8,8 @@
 
 <p align="center">
   <a href="#tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#utilização">Utilização</a>&nbsp;&nbsp;&nbsp;
+  <a href="#utilização">Utilização</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#utilização">Testes</a>&nbsp;&nbsp;&nbsp;
 </p>
 
 <br>
@@ -18,6 +19,7 @@
 * [Adonis.js](https://adonisjs.com/)
 * [Lucid Filter](https://github.com/lookinlab/adonis-lucid-filter)
 * [Lucid Soft Delete](https://github.com/lookinlab/adonis-lucid-soft-deletes)
+* [Japa](https://docs.adonisjs.com/cookbooks/testing-adonisjs-apps#introducing-japa)
 * [PostgreSQL](https://www.postgresql.org/)
 * [Redis](https://redis.io/)
 * [ESLint](https://eslint.org/)
@@ -31,7 +33,7 @@
 
 ## Utilização
 
-1. Instale o [Docker](https://docs.docker.com/engine/install/) e [Docker Compose](https://docs.docker.com/compose/install/).
+1. Instale o [Docker](https://docs.docker.com/engine/install/), [Docker Compose](https://docs.docker.com/compose/install/) e o [EditorConfig](https://editorconfig.org/#download).
 
 2. Clone o projeto para sua máquina:
 ```console
@@ -43,30 +45,45 @@ $ git clone https://github.com/tech-seed/link-boss-api.git
 $ cd link-boss-api
 ```
 
-4. Se estiver no MacOS ou Linux dê permissão de execução a um script do Docker:
+4. Renomeie o .env.example para .env e configure este arquivo:
+
+5. Se estiver no MacOS ou Linux dê permissão de execução a um script do Docker:
 ```console
 $ chmod +x .docker/entrypoint.sh
 ```
 
-5. Prepare o ambiente com o seguinte comando:
+6. Prepare o ambiente com o seguinte comando:
 ```console
 docker-compose build
 ```
 
-6. Crie o banco de dados e rode as migrações:
+7. Crie o banco de dados e rode as migrações:
 ```console
 docker-compose exec app node ace migration:run
 ```
 
-7. Levante o serviço com o seguinte comando:
+8. Levante o serviço com o seguinte comando:
 ```console
 docker-compose up
 ```
 
-6. Agora a API está disponível em http://localhost:3333/api/v1
+9. Agora a API está disponível em http://localhost:3333/api/v1
 
 
-7. Para acessar o terminal do app:
+10. Para acessar o terminal do app:
 ```bash
 docker-compose exec app sh
+```
+
+## Testes
+1. Crie um banco chamado <b>link_boss_test</b>, você poderá utilizar o PG Admin para isso, que roda em http://localhost:9000.
+
+2. Acesse o terminal do container app:
+```bash
+docker-compose exec app sh
+```
+
+3. Rode os testes
+```bash
+node -r @adonisjs/assembler/build/register japaFile.ts
 ```
