@@ -9,7 +9,7 @@
 <p align="center">
   <a href="#tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#utilização">Utilização</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#utilização">Testes</a>&nbsp;&nbsp;&nbsp;
+  <a href="#testes">Testes</a>&nbsp;&nbsp;&nbsp;
 </p>
 
 <br>
