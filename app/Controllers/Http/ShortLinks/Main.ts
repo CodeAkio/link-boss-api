@@ -6,7 +6,14 @@ import urlMetadata from 'url-metadata'
 import { generate as generateShortId } from 'shortid'
 
 export default class ShortLinksController {
-  public async index({}: HttpContextContract): Promise<void> {}
+  public async index({ request, response }: HttpContextContract): Promise<void> {
+    const page = request.input('page', 1)
+    const limit = 10
+
+    const shortLinks = await ShortLink.query().paginate(page, limit)
+
+    return response.ok(shortLinks)
+  }
 
   public async store({ request, response, auth }: HttpContextContract): Promise<void> {
     const { url: originalUrl } = await request.validate(StoreValidator)
