@@ -46,6 +46,10 @@ export default class ShortLink extends compose(BaseModel, SoftDeletes) {
     shortLink.id = uuid()
   }
 
+  public isOwner(userId: string): boolean {
+    return this.userId === userId
+  }
+
   public static async findByIdShortCodeOrFail(idOrShortCode: string): Promise<ShortLink> {
     if (uuidValidate(idOrShortCode)) {
       return await ShortLink.findOrFail(idOrShortCode)

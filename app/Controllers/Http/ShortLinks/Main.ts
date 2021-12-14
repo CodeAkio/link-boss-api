@@ -42,7 +42,7 @@ export default class ShortLinksController {
       const shortLink = await ShortLink.findByIdShortCodeOrFail(params.search)
 
       shortLink.views++
-      shortLink.save()
+      await shortLink.save()
 
       return response.ok(shortLink)
     } catch (error) {
@@ -50,5 +50,21 @@ export default class ShortLinksController {
     }
   }
 
-  public async destroy({}: HttpContextContract): Promise<void> {}
+  public async destroy({ response, params, bouncer }: HttpContextContract): Promise<void> {
+    try {
+      const shortLink = await ShortLink.findByIdShortCodeOrFail(params.search)
+
+      if (await bouncer.with('ShortLinkPolicy').denies('delete', shortLink)) {
+        return response.forbidden({
+          error: "You don't have permission to delete the current short link",
+        })
+      }
+
+      await shortLink.delete()
+
+      return response.noContent()
+    } catch (error) {
+      return response.badRequest(error.message)
+    }
+  }
 }
