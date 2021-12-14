@@ -2,9 +2,18 @@ import { DateTime } from 'luxon'
 import { compose } from '@ioc:Adonis/Core/Helpers'
 import { SoftDeletes } from '@ioc:Adonis/Addons/LucidSoftDeletes'
 import Hash from '@ioc:Adonis/Core/Hash'
-import { column, beforeSave, beforeCreate, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import {
+  column,
+  beforeSave,
+  beforeCreate,
+  BaseModel,
+  hasMany,
+  HasMany,
+} from '@ioc:Adonis/Lucid/Orm'
 
 import { v4 as uuid } from 'uuid'
+
+import UserToken from './UserToken'
 
 export default class User extends compose(BaseModel, SoftDeletes) {
   public static selfAssignPrimaryKey = true
@@ -38,6 +47,9 @@ export default class User extends compose(BaseModel, SoftDeletes) {
 
   @column.dateTime({ serializeAs: null })
   public deletedAt: DateTime
+
+  @hasMany(() => UserToken)
+  public tokens: HasMany<typeof UserToken>
 
   public isAdmin(): boolean {
     return this.role === 'admin'
