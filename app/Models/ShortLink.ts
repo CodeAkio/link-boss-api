@@ -3,7 +3,8 @@ import { compose } from '@ioc:Adonis/Core/Helpers'
 import { SoftDeletes } from '@ioc:Adonis/Addons/LucidSoftDeletes'
 import { BaseModel, column, beforeCreate, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
 
-import { v4 as uuid } from 'uuid'
+import { v4 as uuid, validate as uuidValidate } from 'uuid'
+import shortid from 'shortid'
 
 import User from './User'
 
@@ -43,5 +44,15 @@ export default class ShortLink extends compose(BaseModel, SoftDeletes) {
   @beforeCreate()
   public static assignUuid(shortLink: ShortLink) {
     shortLink.id = uuid()
+  }
+
+  public static async findByIdShortCodeOrFail(idOrShortCode: string): Promise<ShortLink> {
+    if (uuidValidate(idOrShortCode)) {
+      return await ShortLink.findOrFail(idOrShortCode)
+    } else if (shortid.isValid(idOrShortCode)) {
+      return await ShortLink.findByOrFail('short_code', idOrShortCode)
+    } else {
+      throw new Error('Invalid search term')
+    }
   }
 }

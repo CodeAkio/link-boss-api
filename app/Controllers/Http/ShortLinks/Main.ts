@@ -37,7 +37,18 @@ export default class ShortLinksController {
     return response.ok(shortLink)
   }
 
-  public async show({}: HttpContextContract): Promise<void> {}
+  public async show({ response, params }: HttpContextContract): Promise<void> {
+    try {
+      const shortLink = await ShortLink.findByIdShortCodeOrFail(params.search)
+
+      shortLink.views++
+      shortLink.save()
+
+      return response.ok(shortLink)
+    } catch (error) {
+      return response.badRequest(error.message)
+    }
+  }
 
   public async destroy({}: HttpContextContract): Promise<void> {}
 }
