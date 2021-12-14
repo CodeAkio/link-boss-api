@@ -14,6 +14,7 @@ import {
 import { v4 as uuid } from 'uuid'
 
 import UserToken from './UserToken'
+import ShortLink from './ShortLink'
 
 export default class User extends compose(BaseModel, SoftDeletes) {
   public static selfAssignPrimaryKey = true
@@ -50,6 +51,9 @@ export default class User extends compose(BaseModel, SoftDeletes) {
 
   @hasMany(() => UserToken)
   public tokens: HasMany<typeof UserToken>
+
+  @hasMany(() => ShortLink)
+  public shortLinks: HasMany<typeof ShortLink>
 
   public isAdmin(): boolean {
     return this.role === 'admin'
