@@ -1,7 +1,4 @@
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.resource('sessions', 'Sessions/Main')
-  .only(['store', 'destroy'])
-  .middleware({
-    destroy: ['auth'],
-  })
+Route.post('sessions', 'Sessions/Main.store')
+Route.delete('sessions', 'Sessions/Main.destroy').middleware('auth')
