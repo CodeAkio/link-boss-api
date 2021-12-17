@@ -7,12 +7,28 @@
 </h3>
 
 <p align="center">
+  <a href="#demonstração">Demonstração</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#links">Links</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#utilização">Utilização</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#testes">Testes</a>&nbsp;&nbsp;&nbsp;
 </p>
 
 <br>
+
+## Demonstração
+
+<p align="center">
+  <img alt="web" src="https://github.com/CodeAkio/link-boss-api/blob/master/.github/demo.gif" width="100%">
+</p>
+
+## Links
+* [Mapa mental naming](https://mm.tt/map/2121157641?t=CxkaYNsBqh)
+* [Imagens do logo](https://1drv.ms/u/s!AnU6ZyT58iI6g7dAkCBfUnyJ4fOVWQ?e=8RbMqC)
+* [Projeto no Figma](https://www.figma.com/file/nWrm5togzXq3wtSiBFtcwc/LinkBoss?node-id=0%3A1)
+* [Github Web](https://github.com/CodeAkio/link-boss-web)
+* [Coleção do Insomnia](https://1drv.ms/u/s!AnU6ZyT58iI6g7dQaGke8-FM7an2LQ?e=6yruwI)
+* [Kanban do projeto](https://www.meistertask.com/app/project/ttBqnlg9/linkboss)
 
 ## Tecnologias
 
